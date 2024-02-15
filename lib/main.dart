@@ -28,9 +28,13 @@ class MyApp extends StatelessWidget {
           SginInScreen.id: (context) => const SginInScreen(),
           HomePage.id: (context) => const HomePage(),
         },
-        initialRoute: FirebaseAuth.instance.currentUser != null &&
-                FirebaseAuth.instance.currentUser!.emailVerified
-            ? HomePage.id
-            : LoginScreen.id);
+        initialRoute: HomePage.id
+
+        // FirebaseAuth.instance.currentUser != null &&
+        //         FirebaseAuth.instance.currentUser!.emailVerified
+        //     ? HomePage.id
+        //     : LoginScreen.id
+
+        );
   }
 }
