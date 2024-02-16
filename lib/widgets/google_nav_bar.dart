@@ -1,5 +1,8 @@
+import 'package:chat_app/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+
+import '../screens/safety_screen.dart';
 
 class GoogleNavBar extends StatefulWidget {
   const GoogleNavBar({super.key});
@@ -9,10 +12,12 @@ class GoogleNavBar extends StatefulWidget {
 }
 
 class _GoogleNavBarState extends State<GoogleNavBar> {
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: GNav(
+        iconSize: 24,
         backgroundColor: Colors.black,
         color: Colors.white,
         activeColor: Colors.amber,
@@ -20,8 +25,20 @@ class _GoogleNavBarState extends State<GoogleNavBar> {
         gap: 8,
         padding: const EdgeInsets.all(12),
         tabMargin: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+        selectedIndex: _selectedIndex,
         onTabChange: (index) {
-          print(index);
+          setState(() {
+            _selectedIndex = index;
+
+            switch (_selectedIndex) {
+              case 0:
+                Navigator.pushReplacementNamed(context, HomePage.id);
+                break;
+              case 1:
+                Navigator.pushReplacementNamed(context, SafetyScreen.id);
+                break;
+            }
+          });
         },
         tabs: const [
           GButton(

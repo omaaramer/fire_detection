@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_page.dart';
+import 'screens/landing_screen.dart';
 import 'screens/regester_screen.dart';
 
 void main() async {
@@ -21,20 +22,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        routes: {
-          LoginScreen.id: (context) => const LoginScreen(),
-          // RegisterScreen.id: (context) => const RegisterScreen(),
-          SginInScreen.id: (context) => const SginInScreen(),
-          HomePage.id: (context) => const HomePage(),
-        },
-        initialRoute: HomePage.id
+      debugShowCheckedModeBanner: false,
+      routes: {
+        LoginScreen.id: (context) => const LoginScreen(),
+        // RegisterScreen.id: (context) => const RegisterScreen(),
+        SginInScreen.id: (context) => const SginInScreen(),
+        HomePage.id: (context) => const HomePage(),
+        LandingScreen.id: (context) => const LandingScreen(),
+      },
+      initialRoute: LandingScreen.id,
 
-        // FirebaseAuth.instance.currentUser != null &&
-        //         FirebaseAuth.instance.currentUser!.emailVerified
-        //     ? HomePage.id
-        //     : LoginScreen.id
-
-        );
+      // FirebaseAuth.instance.currentUser != null &&
+      //         FirebaseAuth.instance.currentUser!.emailVerified
+      //     ? HomePage.id
+      //     : LoginScreen.id
+    );
   }
 }
