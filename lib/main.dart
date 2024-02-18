@@ -1,12 +1,11 @@
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/screens/login_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 import 'screens/home_page.dart';
 import 'screens/landing_screen.dart';
 import 'screens/regester_screen.dart';
+import 'screens/safety_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,8 +28,9 @@ class MyApp extends StatelessWidget {
         SginInScreen.id: (context) => const SginInScreen(),
         HomePage.id: (context) => const HomePage(),
         LandingScreen.id: (context) => const LandingScreen(),
+        SafetyScreen.id: (context) => const SafetyScreen(),
       },
-      initialRoute: LandingScreen.id,
+      initialRoute: HomePage.id,
 
       // FirebaseAuth.instance.currentUser != null &&
       //         FirebaseAuth.instance.currentUser!.emailVerified

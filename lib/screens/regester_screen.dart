@@ -9,7 +9,6 @@ import '../app_images.dart';
 import '../helper/show_snakbar.dart';
 import '../widgets/custom_buttun.dart';
 import '../widgets/have_an_acount_widget.dart';
-import '../widgets/login_or_regester_text.dart';
 import '../widgets/logo_text.dart';
 import '../widgets/signup_text_field.dart';
 
