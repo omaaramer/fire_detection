@@ -19,7 +19,7 @@ import 'regester_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-  static String id = 'LoginScreen';
+  static const String id = 'LoginScreen';
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();

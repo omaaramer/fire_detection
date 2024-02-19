@@ -1,3 +1,4 @@
+import 'package:chat_app/app_routes.dart';
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/screens/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -6,36 +7,27 @@ import 'screens/home_page.dart';
 import 'screens/landing_screen.dart';
 import 'screens/regester_screen.dart';
 import 'screens/safety_screen.dart';
+import 'widgets/google_nav_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MyApp(
+    appRouter: AppRouter(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final AppRouter appRouter;
+  const MyApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {
-        LoginScreen.id: (context) => const LoginScreen(),
-        // RegisterScreen.id: (context) => const RegisterScreen(),
-        SginInScreen.id: (context) => const SginInScreen(),
-        HomePage.id: (context) => const HomePage(),
-        LandingScreen.id: (context) => const LandingScreen(),
-        SafetyScreen.id: (context) => const SafetyScreen(),
-      },
-      initialRoute: HomePage.id,
-
-      // FirebaseAuth.instance.currentUser != null &&
-      //         FirebaseAuth.instance.currentUser!.emailVerified
-      //     ? HomePage.id
-      //     : LoginScreen.id
+      onGenerateRoute: appRouter.generateRout,
     );
   }
 }

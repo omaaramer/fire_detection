@@ -14,7 +14,7 @@ import '../widgets/signup_text_field.dart';
 
 class SginInScreen extends StatefulWidget {
   const SginInScreen({super.key});
-  static String id = 'SginInScreen';
+  static const String id = 'SginInScreen';
 
   @override
   State<SginInScreen> createState() => _SginInScreenState();

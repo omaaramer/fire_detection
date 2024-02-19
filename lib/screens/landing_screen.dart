@@ -6,7 +6,7 @@ import '../widgets/logo_text.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
-  static String id = "landingScreen";
+  static const String id = "landingScreen";
 
   @override
   Widget build(BuildContext context) {

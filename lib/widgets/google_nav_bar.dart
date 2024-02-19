@@ -1,8 +1,5 @@
-import 'package:chat_app/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
-import '../screens/safety_screen.dart';
 
 class GoogleNavBar extends StatefulWidget {
   const GoogleNavBar({super.key});
@@ -13,6 +10,7 @@ class GoogleNavBar extends StatefulWidget {
 
 class _GoogleNavBarState extends State<GoogleNavBar> {
   int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +28,14 @@ class _GoogleNavBarState extends State<GoogleNavBar> {
           setState(() {
             _selectedIndex = index;
 
-            switch (_selectedIndex) {
-              case 0:
-                Navigator.pushReplacementNamed(context, HomePage.id);
-                break;
-              case 1:
-                Navigator.pushReplacementNamed(context, SafetyScreen.id);
-                break;
-            }
+            // switch (_selectedIndex) {
+            //   case 0:
+            //     Navigator.pushNamed(context, HomePage.id);
+            //     break;
+            //   case 1:
+            //     Navigator.pushNamed(context, SafetyScreen.id);
+            //     break;
+            // }
           });
         },
         tabs: const [

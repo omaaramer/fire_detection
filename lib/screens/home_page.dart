@@ -4,13 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../widgets/google_nav_bar.dart';
+import 'safety_screen.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
-  static String id = "/";
+  static const String id = "HomePage";
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const GoogleNavBar(),
       appBar: AppBar(
         title: const Text('Home'),
         actions: [
@@ -28,7 +36,18 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: const GoogleNavBar(),
+      // body:
+      //  PageView(
+      //   controller: _pageController,
+      //   onPageChanged: (index) {
+      //     setState(() {
+      //       _selectedIndex = index;
+      //     });
+      //   },
+      //   children: const [
+      //     SafetyScreen(),
+      //   ],
+      // ),
     );
   }
 }
