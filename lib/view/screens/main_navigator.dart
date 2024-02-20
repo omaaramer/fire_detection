@@ -1,7 +1,7 @@
-import 'package:chat_app/screens/alarm.dart';
-import 'package:chat_app/screens/home_page.dart';
-import 'package:chat_app/screens/safety_screen.dart';
-import 'package:chat_app/screens/setting_screen.dart';
+import 'package:chat_app/view/screens/alarm.dart';
+import 'package:chat_app/view/screens/home_page.dart';
+import 'package:chat_app/view/screens/safety_screen.dart';
+import 'package:chat_app/view/screens/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 

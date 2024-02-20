@@ -1,4 +1,4 @@
-import 'package:chat_app/app_images.dart';
+import 'package:chat_app/constants/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -36,18 +36,22 @@ class LandingPageBody extends StatelessWidget {
         end: FractionalOffset.bottomCenter,
       )),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const SizedBox(height: 25),
-          Image.asset(
-            Assets.imagesFireAlarm,
-            height: 100,
-            color: Colors.white,
+          Column(
+            children: [
+              Image.asset(
+                Assets.imagesFireAlarm,
+                height: 100,
+                color: Colors.white,
+              ),
+              const SizedBox(height: 10),
+              const LogoText(),
+            ],
           ),
-          const SizedBox(height: 10),
-          const LogoText(),
           const SizedBox(height: 250),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Column(
             children: [
               CustomElevationButton(
                 icon: const Icon(
@@ -62,8 +66,29 @@ class LandingPageBody extends StatelessWidget {
                   }
                 },
               ),
+              const SizedBox(height: 10),
+              const Text(
+                "Emeregency",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.arrow_forward_sharp,
+                    color: Colors.white,
+                    size: 30,
+                  )),
+            ],
+          )
         ],
       ),
     );

@@ -1,11 +1,11 @@
-import 'package:chat_app/screens/home_page.dart';
+import 'package:chat_app/view/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/landing_screen.dart';
-import 'screens/login_page.dart';
-import 'screens/main_navigator.dart';
-import 'screens/regester_screen.dart';
-import 'screens/safety_screen.dart';
+import '../view/screens/landing_screen.dart';
+import '../view/screens/login_page.dart';
+import '../view/screens/main_navigator.dart';
+import '../view/screens/regester_screen.dart';
+import '../view/screens/safety_screen.dart';
 
 class AppRouter {
   Route? generateRout(RouteSettings settings) {

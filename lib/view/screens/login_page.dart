@@ -3,8 +3,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import '../app_images.dart';
-import '../helper/show_snakbar.dart';
+import '../../constants/app_images.dart';
+import '../../helper/show_snakbar.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_social_botton.dart';
 import '../widgets/have_an_acount_widget.dart';
