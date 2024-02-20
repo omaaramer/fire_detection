@@ -1,9 +1,7 @@
 import 'package:chat_app/view/screens/home_page.dart';
 import 'package:flutter/material.dart';
-
 import '../view/screens/landing_screen.dart';
 import '../view/screens/login_page.dart';
-import '../view/screens/main_navigator.dart';
 import '../view/screens/regester_screen.dart';
 import '../view/screens/safety_screen.dart';
 
