@@ -11,7 +11,7 @@ class LogoText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'SAFETY FIRST',
+          'FIREGUARD',
           style: TextStyle(
             fontSize: 25,
             color: Colors.white,

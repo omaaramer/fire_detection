@@ -22,9 +22,9 @@ class CustomElevationButton extends StatelessWidget {
 
           padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
           backgroundColor: MaterialStateProperty.all(
-              Colors.cyan.withOpacity(.7)), // <-- Button color
+              Colors.cyan.withOpacity(.5)), // <-- Button color
           overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
-            if (states.contains(MaterialState.pressed)) return Colors.cyan;
+            if (states.contains(MaterialState.pressed)) return Colors.cyan[200];
             // <-- Splash color
             return null;
           }),

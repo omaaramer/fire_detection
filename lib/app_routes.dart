@@ -15,7 +15,9 @@ class AppRouter {
       //     ? HomePage.id
       //     : LoginScreen.id
       case "/":
-        return MaterialPageRoute(builder: (_) => const MainNavigator());
+        return MaterialPageRoute(builder: (_) => const LandingScreen()
+            // MainNavigator()
+            );
       case HomePage.id:
         return MaterialPageRoute(builder: (_) => const HomePage());
       case LoginScreen.id:

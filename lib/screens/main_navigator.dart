@@ -42,7 +42,7 @@ class _MainNavigatorState extends State<MainNavigator> {
           iconSize: 24,
           backgroundColor: Colors.black,
           color: Colors.white,
-          activeColor: Colors.amber,
+          activeColor: Colors.white,
           tabBackgroundColor: Colors.grey.shade800,
           gap: 8,
           padding: const EdgeInsets.all(12),
