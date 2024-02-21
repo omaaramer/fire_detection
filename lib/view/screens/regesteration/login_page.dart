@@ -1,18 +1,20 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:chat_app/view/screens/main_navigator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import '../../constants/app_images.dart';
-import '../../helper/show_snakbar.dart';
-import '../widgets/custom_divider.dart';
-import '../widgets/custom_social_botton.dart';
-import '../widgets/have_an_acount_widget.dart';
-import '../widgets/login_or_regester_text.dart';
-import '../widgets/login_text_field.dart';
-import '../widgets/custom_buttun.dart';
-import '../widgets/logo_text.dart';
-import 'home_page.dart';
+import '../../../constants/app_images.dart';
+import '../../../constants/constants.dart';
+import '../../../helper/show_snakbar.dart';
+import '../../widgets/custom_divider.dart';
+import '../../widgets/custom_social_botton.dart';
+import '../../widgets/have_an_acount_widget.dart';
+import '../../widgets/login_or_regester_text.dart';
+import '../../widgets/login_text_field.dart';
+import '../../widgets/custom_buttun.dart';
+import '../../widgets/logo_text.dart';
+import '../home_page.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'regester_screen.dart';
@@ -47,8 +49,8 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: const BoxDecoration(
               gradient: LinearGradient(
             colors: [
-              Colors.red,
-              Colors.orange,
+              kGrey,
+              kGrey300,
             ],
             begin: FractionalOffset.topCenter,
             end: FractionalOffset.bottomCenter,
@@ -63,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Image.asset(
                     Assets.imagesFireAlarm,
                     height: 100,
-                    // color: Colors.gr,
+                    color: kYallow,
                   ),
                   const SizedBox(height: 10),
                   const LogoText(),
@@ -151,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 10),
                   HaveAnAount(
                     questionText: 'Don\'t have an account?',
-                    navigateText: '  Create now',
+                    navigateText: '  Create Now',
                     onTap: () {
                       Navigator.pushNamed(context, SginInScreen.id);
                     },
@@ -180,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
         await userLogin();
 
         if (FirebaseAuth.instance.currentUser!.emailVerified) {
-          Navigator.pushNamed(context, HomePage.id, arguments: email);
+          Navigator.pushNamed(context, MainNavigator.id, arguments: email);
         } else {
           customShowSnalBar(context, 'verify your email, and try again');
         }
@@ -226,7 +228,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     await FirebaseAuth.instance.signInWithCredential(credential);
     return Navigator.of(context).pushNamedAndRemoveUntil(
-        HomePage.id, (route) => false,
+        MainNavigator.id, (route) => false,
         arguments: email);
   }
 }

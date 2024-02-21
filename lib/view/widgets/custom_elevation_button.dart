@@ -25,7 +25,7 @@ class CustomElevationButton extends StatelessWidget {
           backgroundColor:
               MaterialStateProperty.all(kYallow), // <-- Button color
           overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
-            if (states.contains(MaterialState.pressed)) return kGrey300;
+            if (states.contains(MaterialState.pressed)) return Colors.white;
             // <-- Splash color
             return null;
           }),

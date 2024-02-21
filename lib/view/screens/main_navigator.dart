@@ -22,6 +22,7 @@ class _MainNavigatorState extends State<MainNavigator> {
     SettingScreen(),
     AlarmScreen(),
   ];
+
   void _onPageChanged(int index) {
     setState(() {
       _selectedIndex = index;
