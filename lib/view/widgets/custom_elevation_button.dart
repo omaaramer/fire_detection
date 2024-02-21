@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomElevationButton extends StatelessWidget {
@@ -21,10 +22,10 @@ class CustomElevationButton extends StatelessWidget {
                   ))),
 
           padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
-          backgroundColor: MaterialStateProperty.all(
-              Colors.cyan.withOpacity(.5)), // <-- Button color
+          backgroundColor:
+              MaterialStateProperty.all(kYallow), // <-- Button color
           overlayColor: MaterialStateProperty.resolveWith<Color?>((states) {
-            if (states.contains(MaterialState.pressed)) return Colors.cyan[200];
+            if (states.contains(MaterialState.pressed)) return kGrey300;
             // <-- Splash color
             return null;
           }),

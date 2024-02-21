@@ -7,7 +7,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 class MainNavigator extends StatefulWidget {
   const MainNavigator({super.key});
-  static const String id = "/";
+  static const String id = "MainNavigator";
 
   @override
   State<MainNavigator> createState() => _MainNavigatorState();
@@ -42,7 +42,7 @@ class _MainNavigatorState extends State<MainNavigator> {
           iconSize: 24,
           backgroundColor: Colors.black,
           color: Colors.white,
-          activeColor: Colors.white,
+          activeColor: Colors.amber,
           tabBackgroundColor: Colors.grey.shade800,
           gap: 8,
           padding: const EdgeInsets.all(12),
@@ -52,11 +52,11 @@ class _MainNavigatorState extends State<MainNavigator> {
           tabs: const [
             GButton(
               icon: Icons.home,
-              text: "Home",
+              text: "HOME",
             ),
             GButton(
               icon: Icons.safety_check,
-              text: "Safety",
+              text: "SAFETY",
             ),
             GButton(
               icon: Icons.fireplace_outlined,

@@ -1,14 +1,18 @@
 import 'package:chat_app/constants/app_images.dart';
+import 'package:chat_app/view/screens/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../../constants/constants.dart';
 import '../widgets/custom_elevation_button.dart';
 import '../widgets/logo_text.dart';
+import 'main_navigator.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
-  static const String id = "landingScreen";
+  static const String id = "/";
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +30,11 @@ class LandingPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(
         colors: [
-          Colors.cyan[300]!,
-          Colors.black87,
+          kGrey,
+          kGrey900,
         ],
         begin: FractionalOffset.topCenter,
         end: FractionalOffset.bottomCenter,
@@ -44,7 +48,7 @@ class LandingPageBody extends StatelessWidget {
               Image.asset(
                 Assets.imagesFireAlarm,
                 height: 100,
-                color: Colors.white,
+                color: kYallow,
               ),
               const SizedBox(height: 10),
               const LogoText(),
@@ -81,7 +85,15 @@ class LandingPageBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      FirebaseAuth.instance.currentUser != null &&
+                              FirebaseAuth.instance.currentUser!.emailVerified
+                          ? MainNavigator.id
+                          : LoginScreen.id,
+                    );
+                  },
                   icon: const Icon(
                     Icons.arrow_forward_sharp,
                     color: Colors.white,
