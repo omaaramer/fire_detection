@@ -81,7 +81,7 @@ class AlarmScreen extends StatelessWidget {
       )),
       body: const Center(
           child: Text(
-        "Alarm Screen",
+        "Setting Screen",
         style: TextStyle(fontSize: 50),
       )),
     );

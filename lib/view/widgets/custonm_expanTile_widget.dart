@@ -41,9 +41,18 @@ class CardExpansionTile extends StatelessWidget {
         child: ExpansionTile(
           title: Text(
             title,
-            style: TextStyle(),
+            style: const TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          subtitle: Text(subTitle),
+          subtitle: Text(
+            subTitle,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
           children: <Widget>[
             ListTile(title: Text(content)),
           ],
