@@ -5,10 +5,11 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(centerTitle: true, title: const Text("Maps")),
+      body: const Center(
           child: Text(
-        "Setting Screen",
+        "Google maps",
         style: TextStyle(fontSize: 50),
       )),
     );

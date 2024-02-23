@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../constants/app_images.dart';
-import '../../../constants/constants.dart';
 import '../../../helper/show_snakbar.dart';
 import '../../widgets/custom_divider.dart';
 import '../../widgets/custom_social_botton.dart';
@@ -14,9 +13,7 @@ import '../../widgets/login_or_regester_text.dart';
 import '../../widgets/login_text_field.dart';
 import '../../widgets/custom_buttun.dart';
 import '../../widgets/logo_text.dart';
-import '../home_page.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
 import 'regester_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -49,8 +46,8 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: const BoxDecoration(
               gradient: LinearGradient(
             colors: [
-              kGrey,
-              kGrey300,
+              Colors.red,
+              Colors.orange,
             ],
             begin: FractionalOffset.topCenter,
             end: FractionalOffset.bottomCenter,
@@ -65,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Image.asset(
                     Assets.imagesFireAlarm,
                     height: 100,
-                    color: kYallow,
+                    color: Colors.white,
                   ),
                   const SizedBox(height: 10),
                   const LogoText(),

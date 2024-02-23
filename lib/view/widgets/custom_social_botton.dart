@@ -1,4 +1,3 @@
-import 'package:chat_app/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomSocialBotton extends StatelessWidget {
@@ -16,7 +15,7 @@ class CustomSocialBotton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       decoration: BoxDecoration(
           // color: Colors.black.withOpacity(.8),
-          color: kGrey700,
+          color: Colors.black.withOpacity(.8),
           borderRadius: BorderRadius.circular(30)),
       child: GestureDetector(
         onTap: onTap,

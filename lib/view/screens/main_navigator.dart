@@ -1,7 +1,7 @@
-import 'package:chat_app/view/screens/alarm.dart';
+import 'package:chat_app/view/screens/setting.dart';
 import 'package:chat_app/view/screens/home_page.dart';
 import 'package:chat_app/view/screens/safety_screen.dart';
-import 'package:chat_app/view/screens/setting_screen.dart';
+import 'package:chat_app/view/screens/maps_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -53,7 +53,7 @@ class _MainNavigatorState extends State<MainNavigator> {
           tabs: const [
             GButton(
               icon: Icons.home,
-              text: "HOME",
+              text: "H O M E",
             ),
             GButton(
               icon: Icons.safety_check,
@@ -61,11 +61,11 @@ class _MainNavigatorState extends State<MainNavigator> {
             ),
             GButton(
               icon: Icons.fireplace_outlined,
-              text: "Alarm",
+              text: "M A P S",
             ),
             GButton(
               icon: Icons.person,
-              text: "Me",
+              text: "SETTINGS",
             ),
           ],
         ),

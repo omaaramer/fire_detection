@@ -1,7 +1,4 @@
-import 'package:chat_app/view/screens/regesteration/login_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,21 +13,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
-        actions: [
-          IconButton(
-            onPressed: () async {
-              //googleSign out
-              GoogleSignIn googleSignIn = GoogleSignIn();
-              googleSignIn.disconnect();
-              //email sign out
-              await FirebaseAuth.instance.signOut();
-              Navigator.pushNamedAndRemoveUntil(
-                  context, LoginScreen.id, (route) => false);
-            },
-            icon: const Icon(Icons.exit_to_app),
-          ),
-        ],
+        centerTitle: true,
+        title: const Text('FIREGUARD'),
       ),
       body: const Center(
           child: Text(

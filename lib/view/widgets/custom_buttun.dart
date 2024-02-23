@@ -1,4 +1,3 @@
-import 'package:chat_app/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtun extends StatelessWidget {
@@ -14,15 +13,15 @@ class CustomButtun extends StatelessWidget {
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
-            // color: Colors.black.withOpacity(.8),
-            color: kGrey700,
+            color: Colors.black.withOpacity(.8),
+            // color: kGrey700,
             borderRadius: BorderRadius.circular(15),
           ),
           child: Center(
             child: Text(
               text,
               style: const TextStyle(
-                color: kYallow,
+                color: Colors.white,
                 fontSize: 20,
               ),
             ),

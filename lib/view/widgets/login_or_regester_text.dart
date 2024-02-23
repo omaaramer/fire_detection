@@ -1,4 +1,3 @@
-import 'package:chat_app/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class LoginOrRegesterText extends StatelessWidget {
@@ -13,7 +12,7 @@ class LoginOrRegesterText extends StatelessWidget {
           text,
           style: const TextStyle(
             fontSize: 25,
-            color: kYallow,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
