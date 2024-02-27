@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class SettingScreen extends StatelessWidget {
-  const SettingScreen({super.key});
+class MapScreen extends StatelessWidget {
+  const MapScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(centerTitle: true, title: const Text("Maps")),
-      body: const Center(
-          child: Text(
-        "Google maps",
-        style: TextStyle(fontSize: 50),
-      )),
+    return const Scaffold(
+      body: GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: LatLng(37.43296265331129, -122.08832357078792),
+        ),
+      ),
     );
   }
 }

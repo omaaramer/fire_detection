@@ -1,9 +1,12 @@
+import 'package:chat_app/constants/constants.dart';
 import 'package:chat_app/view/screens/setting.dart';
 import 'package:chat_app/view/screens/home_page.dart';
 import 'package:chat_app/view/screens/safety_screen.dart';
 import 'package:chat_app/view/screens/maps_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+
+import 'map_screen.dart';
 
 class MainNavigator extends StatefulWidget {
   const MainNavigator({super.key});
@@ -19,8 +22,9 @@ class _MainNavigatorState extends State<MainNavigator> {
   final List<Widget> _screens = const [
     HomePage(),
     SafetyScreen(),
+    MapScreen(),
+    Map2Screen(),
     SettingScreen(),
-    AlarmScreen(),
   ];
 
   void _onPageChanged(int index) {
@@ -41,7 +45,7 @@ class _MainNavigatorState extends State<MainNavigator> {
       child: Scaffold(
         bottomNavigationBar: GNav(
           iconSize: 24,
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.black87,
           color: Colors.white,
           activeColor: Colors.amber,
           tabBackgroundColor: Colors.grey.shade800,
@@ -62,6 +66,10 @@ class _MainNavigatorState extends State<MainNavigator> {
             GButton(
               icon: Icons.fireplace_outlined,
               text: "M A P S",
+            ),
+            GButton(
+              icon: Icons.fireplace_outlined,
+              text: "MAPS",
             ),
             GButton(
               icon: Icons.person,

@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../constants/app_images.dart';
-import '../../../helper/show_snakbar.dart';
+import '../../widgets/show_snakbar.dart';
 import '../../widgets/custom_buttun.dart';
 import '../../widgets/have_an_acount_widget.dart';
 import '../../widgets/logo_text.dart';
@@ -78,7 +78,7 @@ class _SginInScreenState extends State<SginInScreen> {
                   CustomTextField(
                     label: 'Email',
                     onChanged: (value) {
-                      name = value;
+                      email = value;
                     },
                     icon: IconButton(
                       onPressed: () {},
@@ -90,7 +90,7 @@ class _SginInScreenState extends State<SginInScreen> {
                   CustomTextField(
                     label: 'Phone Number',
                     onChanged: (value) {
-                      name = value;
+                      phone = value;
                     },
                     icon: IconButton(
                       onPressed: () {},
@@ -143,15 +143,18 @@ class _SginInScreenState extends State<SginInScreen> {
                     obscureText: _obscureText,
                     label: 'Confirm Password',
                     onChanged: (value) {
-                      password = value;
+                      confirmPass = value;
                     },
                   ),
                   const SizedBox(height: 30),
                   CustomButtun(
                       text: 'Register',
                       onTap: () async {
-                        if (formkey.currentState!.validate() &&
-                            password == confirmPass) {
+                        if (formkey.currentState!.validate()) {
+                          // if (password == confirmPass) {
+                          //   return customShowSnalBar(
+                          //       context, 'password does not matching');
+                          // }
                           isLoading = true;
                           setState(() {});
                           try {
@@ -161,6 +164,8 @@ class _SginInScreenState extends State<SginInScreen> {
                                 .sendEmailVerification();
                             Navigator.pushNamed(context, LoginScreen.id,
                                 arguments: email);
+                            customShowSnalBar(
+                                context, 'Check your email and verified it');
                           } on FirebaseAuthException catch (e) {
                             if (e.code == 'weak-password') {
                               customShowSnalBar(context,
@@ -174,9 +179,6 @@ class _SginInScreenState extends State<SginInScreen> {
                                 context, 'there was an error, try  again');
                             log("===========the catch error ========$e");
                           }
-                        } else {
-                          return customShowSnalBar(
-                              context, 'password does not matching');
                         }
                         isLoading = false;
                         setState(() {});

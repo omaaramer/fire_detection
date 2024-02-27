@@ -22,8 +22,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const MainNavigator());
       case SafetyScreen.id:
         return MaterialPageRoute(builder: (_) => const SafetyScreen());
-      // case LandingScreen.id:
-      //   return MaterialPageRoute(builder: (_) => const LandingScreen());
+      case LandingScreen.id:
+        return MaterialPageRoute(builder: (_) => const LandingScreen());
     }
   }
 }

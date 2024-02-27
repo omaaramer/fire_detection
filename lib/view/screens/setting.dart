@@ -5,8 +5,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import 'regesteration/login_page.dart';
 
-class AlarmScreen extends StatelessWidget {
-  const AlarmScreen({super.key});
+class SettingScreen extends StatelessWidget {
+  const SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
