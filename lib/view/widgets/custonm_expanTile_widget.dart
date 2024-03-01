@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/constants.dart';
 import 'package:flutter/material.dart';
 import '../../constants/expan_item_list.dart';
 
@@ -13,15 +14,19 @@ class _CwstomExpansionTileState extends State<CwstomExpansionTile> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: kExpanList.length,
-        itemBuilder: (_, index) {
-          return CardExpansionTile(
-            title: kExpanList[index]['title']!,
-            content: kExpanList[index]["content"]!,
-            subTitle: kExpanList[index]["subtitle"]!,
-          );
-        });
+    return Expanded(
+      child: ListView.builder(
+          shrinkWrap: true,
+          physics: const ClampingScrollPhysics(),
+          itemCount: kExpanList.length,
+          itemBuilder: (_, index) {
+            return CardExpansionTile(
+              title: kExpanList[index]['title']!,
+              content: kExpanList[index]["content"]!,
+              subTitle: kExpanList[index]["subtitle"]!,
+            );
+          }),
+    );
   }
 }
 
@@ -39,6 +44,9 @@ class CardExpansionTile extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: ExpansionTile(
+          // backgroundColor: kGrey300,
+          // collapsedBackgroundColor: Colors.grey,
+          // collapsedTextColor: Colors.amber,
           title: Text(
             title,
             style: const TextStyle(

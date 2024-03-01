@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const LogoText(),
                   const SizedBox(height: 30),
                   const LoginOrRegesterText(
-                    text: 'LOGIN',
+                    text: 'Login',
                   ),
                   const SizedBox(height: 20),
                   TextFieldWidget(
@@ -94,11 +94,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       icon: _obscureText
                           ? const Icon(
-                              Icons.visibility,
+                              Icons.visibility_off,
                               color: Colors.white,
                             )
                           : const Icon(
-                              Icons.visibility_off,
+                              Icons.visibility,
                               color: Colors.white,
                             ),
                     ),
@@ -126,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: const CustomForgotPassText(),
                   ),
                   const SizedBox(height: 30),
-                  CustomButtun(text: 'LOGIN', onTap: logInValidation),
+                  CustomButtun(text: 'Login', onTap: logInValidation),
                   const SizedBox(height: 10),
                   const CustomDivider(),
                   const SizedBox(height: 30),
@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 10),
                   HaveAnAount(
                     questionText: 'Don\'t have an account?',
-                    navigateText: '  Create Now',
+                    navigateText: '  CREATE NOW',
                     onTap: () {
                       Navigator.pushNamed(context, SginInScreen.id);
                     },

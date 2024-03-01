@@ -108,11 +108,11 @@ class _SginInScreenState extends State<SginInScreen> {
                       },
                       icon: _obscureText
                           ? const Icon(
-                              Icons.visibility,
+                              Icons.visibility_off,
                               color: Colors.white,
                             )
                           : const Icon(
-                              Icons.visibility_off,
+                              Icons.visibility,
                               color: Colors.white,
                             ),
                     ),
@@ -132,11 +132,11 @@ class _SginInScreenState extends State<SginInScreen> {
                       },
                       icon: _obscureText
                           ? const Icon(
-                              Icons.visibility,
+                              Icons.visibility_off,
                               color: Colors.white,
                             )
                           : const Icon(
-                              Icons.visibility_off,
+                              Icons.visibility,
                               color: Colors.white,
                             ),
                     ),
@@ -151,10 +151,10 @@ class _SginInScreenState extends State<SginInScreen> {
                       text: 'Register',
                       onTap: () async {
                         if (formkey.currentState!.validate()) {
-                          // if (password == confirmPass) {
-                          //   return customShowSnalBar(
-                          //       context, 'password does not matching');
-                          // }
+                          if (password != confirmPass) {
+                            return customShowSnalBar(
+                                context, 'password does not matching');
+                          }
                           isLoading = true;
                           setState(() {});
                           try {
