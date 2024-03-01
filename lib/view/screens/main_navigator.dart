@@ -1,12 +1,8 @@
-import 'package:chat_app/constants/constants.dart';
-import 'package:chat_app/view/screens/setting.dart';
-import 'package:chat_app/view/screens/home_page.dart';
-import 'package:chat_app/view/screens/safety_screen.dart';
-import 'package:chat_app/view/screens/maps_screen.dart';
+import 'setting.dart';
+import 'home_page.dart';
+import 'safety_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
-import 'map_screen.dart';
 
 class MainNavigator extends StatefulWidget {
   const MainNavigator({super.key});
@@ -22,8 +18,7 @@ class _MainNavigatorState extends State<MainNavigator> {
   final List<Widget> _screens = const [
     HomePage(),
     SafetyScreen(),
-    MapScreen(),
-    Map2Screen(),
+    // Map2Screen(),
     SettingScreen(),
   ];
 
@@ -57,20 +52,16 @@ class _MainNavigatorState extends State<MainNavigator> {
           tabs: const [
             GButton(
               icon: Icons.home,
-              text: "H O M E",
+              text: "Home",
             ),
             GButton(
               icon: Icons.safety_check,
               text: "SAFETY",
             ),
-            GButton(
-              icon: Icons.fireplace_outlined,
-              text: "M A P S",
-            ),
-            GButton(
-              icon: Icons.fireplace_outlined,
-              text: "MAPS",
-            ),
+            // GButton(
+            //   icon: Icons.fireplace_outlined,
+            //   text: "M A P S",
+            // ),
             GButton(
               icon: Icons.person,
               text: "SETTINGS",

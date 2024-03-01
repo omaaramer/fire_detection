@@ -16,9 +16,5 @@ class Assets {
   /// Assets for imagesOmaar
   /// assets/images/omaar.jpeg
   static const String imagesOmaar = "assets/images/omaar.jpeg";
-
-  /// Assets for imagesTips
-  /// assets/images/tips.gif
-  static const String imagesTips = "assets/images/tips.gif";
 }
 

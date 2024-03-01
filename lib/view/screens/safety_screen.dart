@@ -1,4 +1,4 @@
-import 'package:chat_app/constants/constants.dart';
+import '../../constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../widgets/custonm_expanTile_widget.dart';

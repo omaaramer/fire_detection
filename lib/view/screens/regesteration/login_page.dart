@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 10),
                   HaveAnAount(
                     questionText: 'Don\'t have an account?',
-                    navigateText: '  CREATE NOW',
+                    navigateText: '  Create now',
                     onTap: () {
                       Navigator.pushNamed(context, SginInScreen.id);
                     },

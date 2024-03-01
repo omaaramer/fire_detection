@@ -1,4 +1,3 @@
-import 'package:chat_app/constants/constants.dart';
 import 'package:flutter/material.dart';
 import '../../constants/expan_item_list.dart';
 

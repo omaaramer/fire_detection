@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../constants/constants.dart';
 
@@ -18,14 +20,34 @@ class _FireTipsPageViewState extends State<FireTipsPageView> {
   Widget build(BuildContext context) {
     return Container(
       color: kGrey300,
-      padding: const EdgeInsets.all(30),
       height: 400,
-      child: PageView(
-        controller: _pageController,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Lottie.asset("assets/json_images/tips.json"),
-          Lottie.asset("assets/json_images/tips1.json",
-              width: 100, height: 100),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(30),
+              child: PageView(
+                controller: _pageController,
+                children: [
+                  Lottie.asset("assets/json_images/tips.json"),
+                  Lottie.asset("assets/json_images/tips.json"),
+                  Lottie.asset("assets/json_images/tips1.json",
+                      width: 100, height: 100),
+                ],
+              ),
+            ),
+          ),
+          // SizedBox(height: 20),
+          SmoothPageIndicator(
+            controller: _pageController,
+            count: 3,
+            effect: JumpingDotEffect(
+              activeDotColor: Colors.orange[900]!,
+              spacing: 20,
+              verticalOffset: 20,
+            ),
+          ),
         ],
       ),
     );
