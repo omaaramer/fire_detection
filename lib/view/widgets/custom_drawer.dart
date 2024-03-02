@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -13,71 +14,88 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        child: ListView(
-      children: [
-        Row(
-          children: [
-            Container(
-              width: 60,
-              height: 60,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(60),
-                child: Image.asset(
-                  Assets.imagesOmaar,
-                  fit: BoxFit.cover,
-                ),
+        backgroundColor: kGrey300,
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: ListView(
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    width: 60,
+                    height: 60,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(60),
+                      child: Image.asset(
+                        Assets.imagesOmaar,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const Expanded(
+                      child: ListTile(
+                    title: Text("Omar Amer"),
+                    subtitle: Text("omar1907@gmail.com"),
+                  ))
+                ],
               ),
-            ),
-            const Expanded(
-                child: ListTile(
-              title: Text("Omar Amer"),
-              subtitle: Text("omar1907@gmail.com"),
-            ))
-          ],
-        ),
-        ListTile(
-          title: const Text("Phone Number"),
-          leading: const Icon(Icons.phone),
-          onTap: () {},
-        ),
-        ListTile(
-          title: const Text("Acount"),
-          leading: const Icon(Icons.account_balance_rounded),
-          onTap: () {},
-        ),
-        ListTile(
-          title: const Text("Addres"),
-          leading: const Icon(Icons.home),
-          onTap: () {},
-        ),
-        ListTile(
-          title: const Text("About"),
-          leading: const Icon(Icons.help),
-          onTap: () {},
-        ),
-        ListTile(
-          title: const Text("Contact Us"),
-          leading: const Icon(Icons.phone_android),
-          onTap: () {},
-        ),
-        ListTile(
-          title: const Text("Messeges"),
-          leading: const Icon(Icons.message),
-          onTap: () {},
-        ),
-        ListTile(
-          title: const Text("Sgin out"),
-          leading: const Icon(Icons.exit_to_app),
-          onTap: () async {
-            GoogleSignIn googleSignIn = GoogleSignIn();
-            googleSignIn.disconnect();
-            //email sign out
-            await FirebaseAuth.instance.signOut();
-            Navigator.pushNamedAndRemoveUntil(
-                context, LoginScreen.id, (route) => false);
-          },
-        ),
-      ],
-    ));
+              const CustomLisTileForDrawer(
+                  title: 'Phone Number',
+                  icon: Icon(
+                    Icons.phone,
+                    color: Color(0xff151565),
+                  )),
+              const CustomLisTileForDrawer(
+                title: 'Acount',
+                icon: Icon(Icons.account_balance_rounded),
+              ),
+              const CustomLisTileForDrawer(
+                title: 'Addres',
+                icon: Icon(Icons.home),
+              ),
+              const CustomLisTileForDrawer(
+                title: 'About',
+                icon: Icon(Icons.help),
+              ),
+              const CustomLisTileForDrawer(
+                title: 'Contact Us',
+                icon: Icon(Icons.phone_android),
+              ),
+              const CustomLisTileForDrawer(
+                title: 'Messeges',
+                icon: Icon(Icons.message),
+              ),
+              CustomLisTileForDrawer(
+                title: 'Sgin out',
+                icon: const Icon(Icons.exit_to_app),
+                onTap: () async {
+                  GoogleSignIn googleSignIn = GoogleSignIn();
+                  googleSignIn.disconnect();
+                  //email sign out
+                  await FirebaseAuth.instance.signOut();
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, LoginScreen.id, (route) => false);
+                },
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
+class CustomLisTileForDrawer extends StatelessWidget {
+  final String title;
+  final Icon icon;
+  final void Function()? onTap;
+  const CustomLisTileForDrawer(
+      {super.key, required this.icon, required this.title, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(title),
+      leading: icon,
+      onTap: () {},
+    );
   }
 }

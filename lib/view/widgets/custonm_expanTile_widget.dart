@@ -39,30 +39,42 @@ class CardExpansionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: ExpansionTile(
-          // backgroundColor: kGrey300,
-          // collapsedBackgroundColor: Colors.grey,
-          // collapsedTextColor: Colors.amber,
-          title: Text(
-            title,
-            style: const TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Card(
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Card(
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            clipBehavior: Clip.antiAlias,
+            margin: EdgeInsets.zero,
+            child: ExpansionTile(
+              // backgroundColor: kGrey300,
+              collapsedBackgroundColor: Colors.grey.shade300,
+              backgroundColor: Colors.grey.shade200,
+              iconColor: Colors.black,
+              title: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: Text(
+                subTitle,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              children: <Widget>[
+                ListTile(title: Text(content)),
+              ],
             ),
           ),
-          subtitle: Text(
-            subTitle,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
-          ),
-          children: <Widget>[
-            ListTile(title: Text(content)),
-          ],
         ),
       ),
     );
