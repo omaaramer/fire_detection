@@ -8,9 +8,9 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../constants/app_images.dart';
 import '../../widgets/show_snakbar.dart';
 import '../../widgets/custom_buttun.dart';
-import '../../widgets/have_an_acount_widget.dart';
-import '../../widgets/logo_text.dart';
-import '../../widgets/signup_text_field.dart';
+import 'widgets/have_an_acount_widget.dart';
+import 'widgets/logo_text.dart';
+import 'widgets/signup_text_field.dart';
 
 class SginInScreen extends StatefulWidget {
   const SginInScreen({super.key});

@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../constants/constants.dart';
-import '../widgets/logo_text.dart';
+import 'regesteration/widgets/logo_text.dart';
 import 'main_navigator.dart';
 
 class LandingScreen extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:chat_app/constants/constants.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
-import '../widgets/custom_drawer.dart';
+import 'custom_drawer.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});

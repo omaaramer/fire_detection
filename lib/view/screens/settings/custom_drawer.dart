@@ -1,10 +1,12 @@
 import 'package:chat_app/constants/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../app_images.dart';
-import '../screens/regesteration/login_page.dart';
+import '../../../app_images.dart';
+import '../regesteration/login_page.dart';
+import 'edit_profile/edit_profile.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -19,25 +21,30 @@ class CustomDrawer extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: ListView(
             children: [
-              Row(
-                children: [
-                  SizedBox(
-                    width: 60,
-                    height: 60,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(60),
-                      child: Image.asset(
-                        Assets.imagesOmaar,
-                        fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, EditProfile.id);
+                },
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 60,
+                      height: 60,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(60),
+                        child: Image.asset(
+                          Assets.imagesOmaar,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  const Expanded(
-                      child: ListTile(
-                    title: Text("Omar Amer"),
-                    subtitle: Text("omar1907@gmail.com"),
-                  ))
-                ],
+                    const Expanded(
+                        child: ListTile(
+                      title: Text("Omar Amer"),
+                      subtitle: Text("omar1907@gmail.com"),
+                    )),
+                  ],
+                ),
               ),
               const CustomLisTileForDrawer(
                   title: 'Phone Number',

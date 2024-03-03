@@ -1,4 +1,4 @@
-import '../view/screens/home_page.dart';
+import '../view/screens/home/home_page.dart';
 import 'package:flutter/material.dart';
 import '../view/screens/landing_screen.dart';
 import '../view/screens/regesteration/login_page.dart';
@@ -6,6 +6,7 @@ import '../view/screens/main_navigator.dart';
 import '../view/screens/regesteration/main_login_navigator.dart';
 import '../view/screens/regesteration/regester_screen.dart';
 import '../view/screens/safety_screen.dart';
+import '../view/screens/settings/edit_profile/edit_profile.dart';
 
 class AppRouter {
   Route? generateRout(RouteSettings settings) {
@@ -22,8 +23,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const MainNavigator());
       case SafetyScreen.id:
         return MaterialPageRoute(builder: (_) => const SafetyScreen());
-      case LandingScreen.id:
-        return MaterialPageRoute(builder: (_) => const LandingScreen());
+      case EditProfile.id:
+        return MaterialPageRoute(builder: (_) => const EditProfile());
     }
   }
 }

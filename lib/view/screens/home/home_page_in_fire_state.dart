@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../widgets/custom_slide_action.dart';
-import '../widgets/custom_slogan.dart';
+import '../../widgets/custom_slide_action.dart';
+import '../../widgets/custom_slogan.dart';
 
 class HomePageInFireState extends StatelessWidget {
   const HomePageInFireState({

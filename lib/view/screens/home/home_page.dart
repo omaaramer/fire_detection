@@ -1,7 +1,7 @@
-import 'package:chat_app/view/widgets/logo_text.dart';
+import 'package:chat_app/view/screens/regesteration/widgets/logo_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../../constants/constants.dart';
+import '../../../constants/constants.dart';
 import 'home_page_in_fire_state.dart';
 import 'home_page_in_safe_state.dart';
 
