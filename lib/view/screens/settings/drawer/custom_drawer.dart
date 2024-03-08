@@ -36,7 +36,6 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   // final String documentId;
-  Map<String, dynamic> userdata = {};
 
   @override
   Widget build(BuildContext context) {
