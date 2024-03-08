@@ -25,15 +25,10 @@ class SettingScreen extends StatelessWidget {
           );
         }),
         backgroundColor: kGrey,
-        title: Row(
+        title: const Row(
           children: [
-            const Text("Settings",
+            Text("Settings",
                 style: TextStyle(color: Colors.white, fontSize: 20)),
-            InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, EditeProfileBody.id);
-                },
-                child: const Icon(Icons.add)),
           ],
         ),
       ),

@@ -158,9 +158,9 @@ class _EditeProfileBodyState extends State<EditeProfileBody> {
             onTap: () {
               if (_formKey.currentState!.validate()) {
                 addUserData();
+                Navigator.pushReplacementNamed(context, CustomDrawer.id);
               }
 
-              Navigator.pushReplacementNamed(context, CustomDrawer.id);
               // print("user added");
             },
             child: Container(
@@ -198,6 +198,7 @@ class _EditeProfileBodyState extends State<EditeProfileBody> {
       'email': email,
       "id": FirebaseAuth.instance.currentUser!.uid,
       'url': url ?? "none",
+      "time": DateTime.now(),
     }).then((DocumentReference doc) {
       //  doc.id;
     }).catchError((error) => print("Failed to add user: $error"));
