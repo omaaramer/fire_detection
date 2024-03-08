@@ -4,7 +4,7 @@ import 'components/body.dart';
 
 class EditProfile extends StatelessWidget {
   static const String id = '/edit-profile';
-  const EditProfile({Key? key}) : super(key: key);
+  const EditProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +12,11 @@ class EditProfile extends StatelessWidget {
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
       },
-      child: const Scaffold(
-        backgroundColor: Color(0xFFF2F2F2),
-        body: Body(),
+      child: const SafeArea(
+        child: Scaffold(
+          backgroundColor: Color(0xFFF2F2F2),
+          body: EditeProfileBody(),
+        ),
       ),
     );
   }

@@ -6,6 +6,8 @@ import '../view/screens/main_navigator.dart';
 import '../view/screens/regesteration/main_login_navigator.dart';
 import '../view/screens/regesteration/regester_screen.dart';
 import '../view/screens/safety_screen.dart';
+import '../view/screens/settings/drawer/custom_drawer.dart';
+import '../view/screens/settings/edit_profile/components/body.dart';
 import '../view/screens/settings/edit_profile/edit_profile.dart';
 
 class AppRouter {
@@ -25,6 +27,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SafetyScreen());
       case EditProfile.id:
         return MaterialPageRoute(builder: (_) => const EditProfile());
+      case CustomDrawer.id:
+        return MaterialPageRoute(builder: (_) => const CustomDrawer());
+      case EditeProfileBody.id:
+        return MaterialPageRoute(builder: (_) => const EditeProfileBody());
     }
   }
 }
