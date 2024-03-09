@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'drawer/custom_drawer.dart';
-import 'edit_profile/components/body.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});

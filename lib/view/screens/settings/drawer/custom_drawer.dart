@@ -1,9 +1,11 @@
+import 'package:chat_app/app_images.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../../regesteration/login_page.dart';
-import '../edit_profile/edit_profile.dart';
+import 'custom_close_button.dart';
+import 'profile_listile.dart';
 
 class CustomLisTileForDrawer extends StatelessWidget {
   final String title;
@@ -20,7 +22,7 @@ class CustomLisTileForDrawer extends StatelessWidget {
         icon,
         // color: Color(0xff151565),
       ),
-      onTap: () {},
+      onTap: onTap,
     );
   }
 }
@@ -36,110 +38,96 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   // final String documentId;
-  Map<String, dynamic> userdata = {};
+  Future<QuerySnapshot> getuserData() async {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+    QuerySnapshot snapshot = await users
+        .where("id", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    return snapshot;
+  }
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
     // if (FirebaseAuth.instance.currentUser!.uid){}
-    return FutureBuilder<QuerySnapshot>(
-      future: users
-          .where("id", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-          .get(),
-      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-        if (snapshot.hasData) {
-          return SafeArea(
-            child: Drawer(
-              backgroundColor: Colors.white.withOpacity(.85),
-              child: Padding(
-                padding: const EdgeInsets.all(5),
-                child: Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, EditProfile.id);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(.15),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: ListTile(
-                          title: Text(snapshot.data!.docs.last["full_name"]),
-                          subtitle: Text(snapshot.data!.docs.last["email"]),
-                          leading: SizedBox(
-                            width: 60,
-                            height: 60,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(60),
-                              child: Image.network(
-                                snapshot.data!.docs.last["url"],
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    CustomLisTileForDrawer(
-                      title: snapshot.data!.docs.last["phone"],
-                      icon: Icons.phone,
-                    ),
-                    CustomLisTileForDrawer(
-                      title: snapshot.data!.docs.last["address"],
-                      icon: Icons.home,
-                    ),
-                    const CustomLisTileForDrawer(
-                      title: "full name",
-                      icon: Icons.person,
-                    ),
-                    const CustomLisTileForDrawer(
-                      title: 'About',
-                      icon: Icons.help,
-                    ),
-                    CustomLisTileForDrawer(
-                      title: 'Sgin out',
-                      icon: Icons.exit_to_app,
-                      onTap: () async {
-                        GoogleSignIn googleSignIn = GoogleSignIn();
-                        googleSignIn.disconnect();
-                        //email sign out
-                        await FirebaseAuth.instance.signOut();
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, LoginScreen.id, (route) => false);
-                      },
-                    ),
-                    const Spacer(flex: 1),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+    return SafeArea(
+      child: Drawer(
+        backgroundColor: Colors.white.withOpacity(.85),
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: FutureBuilder<QuerySnapshot>(
+            future: getuserData(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                    child: CircularProgressIndicator(color: Color(0xff00b7e7)));
+              }
+
+              for (int i = 0; i < snapshot.data!.docs.length; i++) {
+                if (snapshot.data!.docs.last["id"] ==
+                    FirebaseAuth.instance.currentUser!.uid) {
+                  if (snapshot.hasData) {
+                    return Column(
                       children: [
-                        Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.black.withOpacity(.2),
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Icon(
-                              Icons.close,
-                              size: 25,
-                            ),
+                        ProfileListile(
+                          title: snapshot.data!.docs.last["full_name"],
+                          subtitle: snapshot.data!.docs.last["email"],
+                          image: Image.network(
+                            snapshot.data!.docs.last["url"],
+                            fit: BoxFit.cover,
                           ),
                         ),
+                        CustomLisTileForDrawer(
+                          title: snapshot.data!.docs.last["phone"],
+                          icon: Icons.phone,
+                        ),
+                        CustomLisTileForDrawer(
+                          title: snapshot.data!.docs.last["address"],
+                          icon: Icons.home,
+                        ),
+                        const CustomLisTileForDrawer(
+                          title: "Profile",
+                          icon: Icons.person,
+                        ),
+                        const CustomLisTileForDrawer(
+                          title: 'About',
+                          icon: Icons.help,
+                        ),
+                        CustomLisTileForDrawer(
+                          title: 'Sgin out',
+                          icon: Icons.exit_to_app,
+                          onTap: () async {
+                            GoogleSignIn googleSignIn = GoogleSignIn();
+                            googleSignIn.disconnect();
+                            //email sign out
+                            await FirebaseAuth.instance.signOut();
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, LoginScreen.id, (route) => false);
+                          },
+                        ),
+                        const Spacer(flex: 1),
+                        const CustomCloseButton()
                       ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-          );
-        } else {
-          return const Center(child: CircularProgressIndicator());
-        }
-      },
+                    );
+                  }
+                } else {
+                  return ProfileListile(
+                    title: "No User Profile",
+                    subtitle: 'Add Profile',
+                    image: Image.asset(Assets.imagesAddUser),
+                  );
+                }
+              }
+              return ProfileListile(
+                title: "No User Profile",
+                subtitle: 'Add Profile',
+                image: Image.asset(Assets.imagesAddUser),
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }
