@@ -2,9 +2,8 @@ import 'package:chat_app/app_images.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import '../../regesteration/login_page.dart';
-import 'custom_close_button.dart';
+import 'custom_waiting_circule.dart';
+import 'drawer_body.dart';
 import 'profile_listile.dart';
 
 class CustomLisTileForDrawer extends StatelessWidget {
@@ -37,16 +36,6 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
-  // final String documentId;
-  Future<QuerySnapshot> getuserData() async {
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
-
-    QuerySnapshot snapshot = await users
-        .where("id", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-        .get();
-    return snapshot;
-  }
-
   @override
   Widget build(BuildContext context) {
     // if (FirebaseAuth.instance.currentUser!.uid){}
@@ -60,55 +49,19 @@ class _CustomDrawerState extends State<CustomDrawer> {
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                    child: CircularProgressIndicator(color: Color(0xff00b7e7)));
+                return const CustomCircule();
               }
 
               for (int i = 0; i < snapshot.data!.docs.length; i++) {
                 if (snapshot.data!.docs.last["id"] ==
                     FirebaseAuth.instance.currentUser!.uid) {
                   if (snapshot.hasData) {
-                    return Column(
-                      children: [
-                        ProfileListile(
-                          title: snapshot.data!.docs.last["full_name"],
-                          subtitle: snapshot.data!.docs.last["email"],
-                          image: Image.network(
-                            snapshot.data!.docs.last["url"],
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        CustomLisTileForDrawer(
-                          title: snapshot.data!.docs.last["phone"],
-                          icon: Icons.phone,
-                        ),
-                        CustomLisTileForDrawer(
-                          title: snapshot.data!.docs.last["address"],
-                          icon: Icons.home,
-                        ),
-                        const CustomLisTileForDrawer(
-                          title: "Profile",
-                          icon: Icons.person,
-                        ),
-                        const CustomLisTileForDrawer(
-                          title: 'About',
-                          icon: Icons.help,
-                        ),
-                        CustomLisTileForDrawer(
-                          title: 'Sgin out',
-                          icon: Icons.exit_to_app,
-                          onTap: () async {
-                            GoogleSignIn googleSignIn = GoogleSignIn();
-                            googleSignIn.disconnect();
-                            //email sign out
-                            await FirebaseAuth.instance.signOut();
-                            Navigator.pushNamedAndRemoveUntil(
-                                context, LoginScreen.id, (route) => false);
-                          },
-                        ),
-                        const Spacer(flex: 1),
-                        const CustomCloseButton()
-                      ],
+                    return DrawerBody(
+                      name: snapshot.data!.docs.last["full_name"],
+                      email: snapshot.data!.docs.last["email"],
+                      phone: snapshot.data!.docs.last["phone"],
+                      address: snapshot.data!.docs.last["address"],
+                      image: snapshot.data!.docs.last["url"],
                     );
                   }
                 } else {
@@ -129,5 +82,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
         ),
       ),
     );
+  }
+
+  Future<QuerySnapshot> getuserData() async {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+    QuerySnapshot snapshot = await users
+        .where("id", isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    return snapshot;
   }
 }
