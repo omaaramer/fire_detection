@@ -65,10 +65,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     );
                   }
                 } else {
-                  return ProfileListile(
-                    title: "No User Profile",
-                    subtitle: 'Add Profile',
-                    image: Image.asset(Assets.imagesAddUser),
+                  return SizedBox(
+                    height: 100,
+                    child: ProfileListile(
+                      title: "No User Profile",
+                      subtitle: 'Add Profile',
+                      image: Image.asset(Assets.imagesAddUser),
+                    ),
                   );
                 }
               }

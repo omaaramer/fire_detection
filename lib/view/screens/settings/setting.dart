@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'drawer/custom_drawer.dart';
 
 class SettingScreen extends StatelessWidget {
+  static const String id = "SettingScreen";
+
   const SettingScreen({super.key});
 
   @override

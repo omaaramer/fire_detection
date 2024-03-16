@@ -25,6 +25,7 @@ class ProfileListile extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             child: ListTile(
+              
               title: Text(title),
               subtitle: Text(subtitle),
               leading: SizedBox(

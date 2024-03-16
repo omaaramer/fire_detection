@@ -1,4 +1,4 @@
-import 'package:chat_app/view/screens/regesteration/widgets/logo_text.dart';
+import 'package:chat_app/view/screens/Auth/widgets/logo_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../../constants/constants.dart';

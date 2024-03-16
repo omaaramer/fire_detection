@@ -1,3 +1,7 @@
+import 'package:chat_app/business_logic/auth_bloc/auth_bloc.dart';
+import 'package:chat_app/business_logic/auth_cubit/auth_cubit.dart';
+import 'package:chat_app/business_logic/profile_cubit/profile_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -34,13 +38,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      darkTheme: ThemeData(fontFamily: "Rubik"),
-      // brightness: Brightness.dark,
-      /* dark theme settings */
-      // ),
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: appRouter.generateRout,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthCubitCubit(),
+        ),
+       
+        BlocProvider(
+          create: (context) => ProfileCubit(),
+        ),
+        BlocProvider(
+          create: (context) => AuthBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        darkTheme: ThemeData(fontFamily: "Rubik"),
+        // brightness: Brightness.dark,
+        /* dark theme settings */
+        // ),
+
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: appRouter.generateRout,
+      ),
     );
   }
 }

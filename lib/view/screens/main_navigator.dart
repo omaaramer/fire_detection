@@ -1,6 +1,6 @@
 import 'settings/setting.dart';
 import 'home/home_page.dart';
-import 'safety_screen.dart';
+import 'safety/safety_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 

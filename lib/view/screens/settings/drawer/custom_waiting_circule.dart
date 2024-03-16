@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomCircule extends StatelessWidget {
   const CustomCircule({
-    super.key,
+    super.key
   });
 
   @override

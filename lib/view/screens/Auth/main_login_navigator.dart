@@ -14,8 +14,8 @@ class MainLoginNavigator extends StatefulWidget {
 class _MainLoginNavigatorState extends State<MainLoginNavigator> {
   // PageController _pageController = PageController();
   // int _selectedIndex = 0;
-  final List<Widget> _screens = const [
-    LandingScreen(),
+  final List<Widget> _screens = [
+    const LandingScreen(),
     LoginScreen(),
     SginInScreen(),
   ];

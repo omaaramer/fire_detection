@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../regesteration/login_page.dart';
+import '../../Auth/login_page.dart';
 import 'custom_close_button.dart';
 import 'custom_drawer.dart';
 import 'profile_listile.dart';

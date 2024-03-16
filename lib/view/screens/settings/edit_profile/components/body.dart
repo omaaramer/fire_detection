@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import '../../drawer/custom_drawer.dart';
+import '../../setting.dart';
 import 'custom_button.dart';
 import 'custom_nav_edit_profile.dart';
 import 'custom_text_field.dart';
@@ -99,7 +99,7 @@ class _EditeProfileBodyState extends State<EditeProfileBody> {
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
                     addUserData();
-                    Navigator.pushReplacementNamed(context, CustomDrawer.id);
+                    Navigator.pushReplacementNamed(context, SettingScreen.id);
                   }
                 },
                 text: 'Save Changes',

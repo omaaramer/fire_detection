@@ -19,7 +19,7 @@ class TextFieldWidget extends StatelessWidget {
         fontSize: 18,
         color: Colors.white,
       ),
-      obscureText: obscureText!,
+      // obscureText: obscureText!,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return "Please enter some text";
