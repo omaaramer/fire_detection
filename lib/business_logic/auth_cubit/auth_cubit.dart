@@ -35,8 +35,8 @@ class AuthCubitCubit extends Cubit<AuthCubitState> {
     // Trigger the authentication flow
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      emit(LoginFailure(errorMessage: 'No Account Chosen'));
       if (googleUser == null) return;
-
       // Obtain the auth details from the request
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;

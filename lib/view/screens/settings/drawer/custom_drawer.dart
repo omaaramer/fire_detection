@@ -64,21 +64,21 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       image: snapshot.data!.docs.last["url"],
                     );
                   }
-                } else {
-                  return SizedBox(
-                    height: 100,
-                    child: ProfileListile(
-                      title: "No User Profile",
-                      subtitle: 'Add Profile',
-                      image: Image.asset(Assets.imagesAddUser),
-                    ),
-                  );
                 }
               }
-              return ProfileListile(
-                title: "No User Profile",
-                subtitle: 'Add Profile',
-                image: Image.asset(Assets.imagesAddUser),
+
+              var user = FirebaseAuth.instance.currentUser;
+
+              var displayName = user!.displayName;
+              var email = user.email;
+              var photoURL = user.photoURL;
+
+              return DrawerBody(
+                name: displayName!,
+                email: email!,
+                image: photoURL!,
+                phone: 'Phone Number',
+                address: 'Your Address',
               );
             },
           ),

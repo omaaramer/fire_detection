@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../Auth/login_page.dart';
+import '../edit_profile/edit_profile.dart';
 import 'custom_close_button.dart';
 import 'custom_drawer.dart';
 import 'profile_listile.dart';
@@ -40,10 +41,16 @@ class DrawerBody extends StatelessWidget {
         CustomLisTileForDrawer(
           title: phone,
           icon: Icons.phone,
+          onTap: () {
+            Navigator.pushNamed(context, EditProfile.id);
+          },
         ),
         CustomLisTileForDrawer(
           title: address,
           icon: Icons.home,
+          onTap: () {
+            Navigator.pushNamed(context, EditProfile.id);
+          },
         ),
         const CustomLisTileForDrawer(
           title: "Profile",
