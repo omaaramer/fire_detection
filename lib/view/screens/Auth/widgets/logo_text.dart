@@ -1,22 +1,33 @@
 import 'package:flutter/material.dart';
 
-class LogoText extends StatelessWidget {
-  const LogoText({
-    super.key,
-  });
+import '../../../../app_images.dart';
+
+class Logo extends StatelessWidget {
+  final Color? color;
+  const Logo({super.key, this.color});
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          'FIREGUARD',
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+        Column(
+          children: [
+            Image.asset(
+              Assets.imagesFireAlarm,
+              height: 100,
+              color: color ?? Colors.white,
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'FIREGUARD',
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ],
     );

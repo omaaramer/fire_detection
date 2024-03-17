@@ -39,15 +39,12 @@ class LandingPageBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const SizedBox(height: 25),
-          Column(
+          const Column(
             children: [
-              Image.asset(
-                Assets.imagesFireAlarm,
-                height: 100,
+              SizedBox(height: 10),
+              Logo(
                 color: kYallow,
               ),
-              const SizedBox(height: 10),
-              const LogoText(),
             ],
           ),
           const SizedBox(height: 250),

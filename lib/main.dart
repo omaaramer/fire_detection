@@ -43,7 +43,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthCubitCubit(),
         ),
-       
         BlocProvider(
           create: (context) => ProfileCubit(),
         ),

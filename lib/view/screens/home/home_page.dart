@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const LogoText(),
+            const Logo(),
             IconButton(
                 onPressed: () {
                   _safeState = !_safeState;

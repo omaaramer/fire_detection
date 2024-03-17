@@ -1,7 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:developer';
-import 'package:chat_app/business_logic/auth_bloc/auth_bloc.dart';
+import 'package:chat_app/business_logic/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -37,7 +37,7 @@ class _SginInScreenState extends State<SginInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthBloc, AuthState>(
+    return BlocConsumer<AuthCubitCubit, AuthCubitState>(
       listener: (context, state) {
         if (state is RegesterLoading) {
           isLoading = true;
@@ -70,13 +70,7 @@ class _SginInScreenState extends State<SginInScreen> {
                   child: ListView(
                     children: [
                       const SizedBox(height: 25),
-                      Image.asset(
-                        Assets.imagesFireAlarm,
-                        height: 100,
-                        // color: Colors.gr,
-                      ),
-                      const SizedBox(height: 10),
-                      const LogoText(),
+                      const Logo(),
                       const SizedBox(height: 30),
                       CustomTextField(
                         label: 'Full Name',
@@ -170,43 +164,17 @@ class _SginInScreenState extends State<SginInScreen> {
                                 return customShowSnalBar(
                                     context, 'password does not matching');
                               }
-                              BlocProvider.of<AuthBloc>(context).add(
-                                  RegisterEvant(
-                                      email: email!, password: password!));
-                              // BlocProvider.of<AuthCubitCubit>(context)
-                              //     .userRegester(
-                              //         email: email!, password: password!);
-                              // isLoading = true;
-                              // try {
-                              //   await userRegester();
-
-                              //   FirebaseAuth.instance.currentUser!
-                              //       .sendEmailVerification();
-                              //   Navigator.pushNamed(context, LoginScreen.id,
-                              //       arguments: email);
-                              //   customShowSnalBar(
-                              //       context, 'Check your email and verified it');
-                              // } on FirebaseAuthException catch (e) {
-                              //   if (e.code == 'weak-password') {
-                              //     customShowSnalBar(context,
-                              //         'The password provided is too weak.');
-                              //   } else if (e.code == 'email-already-in-use') {
-                              //     customShowSnalBar(context,
-                              //         'The account already exists for that email.');
-                              //   }
-                              // } catch (e) {
-                              //   customShowSnalBar(
-                              //       context, 'there was an error, try  again');
-                              //   log("===========the catch error ========$e");
-                              // }
+                              BlocProvider.of<AuthCubitCubit>(context)
+                                  .userRegester(
+                                      email: email!, password: password!);
                             }
                             isLoading = false;
                           }),
                       const SizedBox(height: 10),
                       HaveAnAount(
                         questionText: 'Have an  account ? ',
-                        navigateText: '  Sign In',
-                        onTap: () {
+                        navigateText: 'Sign In',
+                        onPressed: () {
                           Navigator.pop(context);
                         },
                       ),

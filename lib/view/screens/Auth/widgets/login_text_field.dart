@@ -14,6 +14,7 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText!,
       cursorColor: Colors.white,
       style: const TextStyle(
         fontSize: 18,

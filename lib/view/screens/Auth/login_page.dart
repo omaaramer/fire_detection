@@ -12,6 +12,7 @@ import '../../../constants/app_images.dart';
 import '../../widgets/show_snakbar.dart';
 import 'widgets/custom_divider.dart';
 import 'widgets/custom_social_botton.dart';
+import 'widgets/forget_pass.dart';
 import 'widgets/have_an_acount_widget.dart';
 import 'widgets/login_or_regester_text.dart';
 import 'widgets/login_text_field.dart';
@@ -22,7 +23,7 @@ import 'regester_screen.dart';
 class LoginScreen extends StatefulWidget {
   static const String id = 'LoginScreen';
 
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -76,13 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: ListView(
                   children: [
                     const SizedBox(height: 25),
-                    Image.asset(
-                      Assets.imagesFireAlarm,
-                      height: 100,
-                      color: Colors.white,
-                    ),
-                    const SizedBox(height: 10),
-                    const LogoText(),
+                    const Logo(),
                     const SizedBox(height: 30),
                     const LoginOrRegesterText(
                       text: 'Login',
@@ -176,8 +171,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 10),
                     HaveAnAount(
                       questionText: 'Don\'t have an account?',
-                      navigateText: '  Create now',
-                      onTap: () {
+                      navigateText: 'Create now',
+                      onPressed: () {
                         Navigator.pushNamed(context, SginInScreen.id);
                       },
                     ),
@@ -189,56 +184,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  // void logInValidation() async {
-  //   isLoading = true;
-  //   // setState(() {});
-  //   try {
-  //     await userLogin();
-
-  //     if (FirebaseAuth.instance.currentUser!.emailVerified) {
-  //       Navigator.pushNamed(context, MainNavigator.id, arguments: email);
-  //     } else {
-  //       customShowSnalBar(context, 'verify your email, and try again');
-  //     }
-  //   } on FirebaseAuthException catch (e) {
-  //     String message = "error";
-  //     if (e.code == 'user-not-found') {
-  //       message = 'No user found for that email.';
-  //     } else if (e.code == 'wrong-password') {
-  //       message = 'Wrong password provided for that account.';
-  //     }
-  //     customShowSnalBar(context, message);
-
-  //     // TextField(
-  //     //   decoration: InputDecoration(errorText: message),
-  //     // );
-  //   } catch (e) {
-  //     const TextField(
-  //       decoration:
-  //           InputDecoration(errorText: 'there was an error, try again'),
-  //     );
-  //   }
-  // }
-  // isLoading = false;
-  // setState(() {});
-  // }
-}
-
-class CustomForgotPassText extends StatelessWidget {
-  const CustomForgotPassText({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: const EdgeInsets.only(top: 10, bottom: 10),
-        alignment: Alignment.topRight,
-        child: const Text(
-          "Forgot Password ?",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ));
   }
 }
