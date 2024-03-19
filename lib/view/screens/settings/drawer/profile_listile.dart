@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../edit_profile/edit_profile.dart';
-import 'custom_waiting_circule.dart';
 
 class ProfileListile extends StatelessWidget {
   final String title, subtitle;
@@ -25,7 +24,6 @@ class ProfileListile extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             child: ListTile(
-              
               title: Text(title),
               subtitle: Text(subtitle),
               leading: SizedBox(

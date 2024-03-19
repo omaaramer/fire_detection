@@ -1,7 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
-import 'dart:ffi';
-
 import 'package:chat_app/business_logic/auth_cubit/auth_cubit.dart';
 import 'package:chat_app/view/screens/main_navigator.dart';
 import 'package:firebase_auth/firebase_auth.dart';

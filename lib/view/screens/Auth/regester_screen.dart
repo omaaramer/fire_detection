@@ -1,11 +1,7 @@
-// ignore_for_file: use_build_context_synchronously
-
-import 'dart:developer';
 import 'package:chat_app/business_logic/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import '../../../constants/app_images.dart';
 import '../../widgets/show_snakbar.dart';
 import '../../widgets/custom_buttun.dart';
 import 'login_page.dart';
@@ -15,6 +11,8 @@ import 'widgets/signup_text_field.dart';
 
 class SginInScreen extends StatefulWidget {
   static const String id = 'SginInScreen';
+
+  const SginInScreen({super.key});
 
   @override
   State<SginInScreen> createState() => _SginInScreenState();

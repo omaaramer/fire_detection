@@ -1,6 +1,5 @@
 import '../view/screens/home/home_page.dart';
 import 'package:flutter/material.dart';
-import '../view/screens/landing_screen.dart';
 import '../view/screens/Auth/login_page.dart';
 import '../view/screens/main_navigator.dart';
 import '../view/screens/Auth/main_login_navigator.dart';

@@ -9,3 +9,7 @@ const kGrey300 = Color(0xffbababa);
 const kMessageColection = 'messages';
 const kMessage = 'message';
 const kCreatedAt = 'createdAt';
+
+const String kcurrentstateCollection = 'currentstate';
+const String kfirestate = 'fire';
+const String ksafestate = 'safe';

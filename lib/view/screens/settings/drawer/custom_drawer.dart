@@ -1,10 +1,8 @@
-import 'package:chat_app/app_images.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'custom_waiting_circule.dart';
 import 'drawer_body.dart';
-import 'profile_listile.dart';
 
 class CustomLisTileForDrawer extends StatelessWidget {
   final String title;
